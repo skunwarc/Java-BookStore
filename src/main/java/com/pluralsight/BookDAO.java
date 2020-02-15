@@ -109,9 +109,10 @@ public class BookDAO {
 		try {
 			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 			statement.setString(1, book.getTitle());
-			statement.setString(1, book.getAuthor());
-			statement.setFloat(1, book.getPrice());
-			statement.setInt(1, book.getId());
+			statement.setString(2, book.getAuthor());
+			statement.setFloat(3, book.getPrice());
+			statement.setInt(4, book.getId());
+			statement.executeUpdate();
 			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
